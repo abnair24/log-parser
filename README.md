@@ -7,7 +7,7 @@ Sample repo for parsing logs and checking for exceptions and errors
 
 #### How to Run
 
-Call `LogParser.main()`
+Call [LogParser.main()](https://github.com/abnair24/log-parser/blob/master/src/main/java/com/github/parser/LogParser.java)
 
     1. `ErrorProcessor.java`  - outputs all `error` with number of occurances
     
