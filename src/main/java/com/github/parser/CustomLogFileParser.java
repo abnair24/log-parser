@@ -43,13 +43,13 @@ public class CustomLogFileParser {
                 logMessage = regexHelper.extractLogMessage(processId, currentLine);
 
                 errorProcesor.processForErrors(logMessage);
-//                stringSearchProcessor.processStringSearch(logMessage, stringsToBeSearched);
-//                fatalExceptionProcessor.processFatalException(logMessage);
+                stringSearchProcessor.processStringSearch(logMessage, stringsToBeSearched);
+                fatalExceptionProcessor.processFatalException(logMessage);
             }
 
             errorProcesor.processResults();
-//            stringSearchProcessor.getResults();
-//            fatalExceptionProcessor.getResults();
+            stringSearchProcessor.getResults();
+            fatalExceptionProcessor.getResults();
 
         } catch (IOException e) {
             e.printStackTrace();
