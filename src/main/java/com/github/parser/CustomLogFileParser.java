@@ -35,21 +35,18 @@ public class CustomLogFileParser {
         try {
             fileReader = new FileReader(file);
             bufferedReader = new BufferedReader(fileReader);
-
             String logMessage = "";
 
             while ((currentLine = bufferedReader.readLine()) != null) {
-
                 logMessage = regexHelper.extractLogMessage(processId, currentLine);
-
                 errorProcesor.processForErrors(logMessage);
                 stringSearchProcessor.processStringSearch(logMessage, stringsToBeSearched);
                 fatalExceptionProcessor.processFatalException(logMessage);
             }
 
             errorProcesor.processResults();
-            stringSearchProcessor.getResults();
-            fatalExceptionProcessor.getResults();
+            stringSearchProcessor.processResults();
+            fatalExceptionProcessor.processResults();
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -63,7 +60,7 @@ public class CustomLogFileParser {
                     fileReader.close();
                 }
             } catch (IOException ex) {
-                ex.printStackTrace();
+               // ex.printStackTrace();
             }
         }
     }

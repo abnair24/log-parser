@@ -6,8 +6,7 @@ import java.util.regex.Pattern;
 
 public class ErrorProcesor {
 
-
-    private final Map<String, Integer> frequencyMap = new HashMap<>();
+    private Map<String, Integer> frequencyErrorMap = new HashMap<>();
     private static final String ERROR = "error";
 
     public void processForErrors(String currentLogMessage) {
@@ -23,20 +22,17 @@ public class ErrorProcesor {
 
     private void insertIntoMap(String word) {
         if (word.toLowerCase().contains(ERROR)) {
-            if (!frequencyMap.containsKey(word)) {
-                frequencyMap.put(word, 1);
+            if (!frequencyErrorMap.containsKey(word)) {
+                frequencyErrorMap.put(word, 1);
             } else {
-                frequencyMap.put(word, frequencyMap.get(word) + 1);
+                frequencyErrorMap.put(word, frequencyErrorMap.get(word) + 1);
             }
         }
     }
 
     public void processResults() {
-        System.out.println("ErrorProcessor :");
-        for(String key :frequencyMap.keySet())
-        {
-            System.out.println(key + " : "+ frequencyMap.get(key));
-        }
+        System.out.println("=========================================== ErrorProcessor =========================================");
+        frequencyErrorMap.forEach((k,v) -> System.out.println(k + "  : " +v));
     }
 
 }

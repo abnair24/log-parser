@@ -4,7 +4,7 @@ import com.github.parser.regex.RegexHelper;
 
 import java.util.*;
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+
 
 public class FatalExceptionProcessor {
 
@@ -57,12 +57,12 @@ public class FatalExceptionProcessor {
         }
     }
 
-    public void getResults() {
-        System.out.println("FATAL EXCEPTION message :");
+    public void processResults() {
+        System.out.println("=================================== FATAL EXCEPTION Message ===============================");
         exceptionMap.forEach((k, v) -> System.out.println(k + " : " + v));
-        System.out.println("Exception MessageLines :");
+        System.out.println("=================================== FATAL EXCEPTION MessageLines ===============================");
         exceptionLinesMap.forEach((k, v) -> System.out.println(k + " : " + v));
-        System.out.println("Stacktrace: ");
+        System.out.println("=================================== FATAL EXCEPTION Stacktrace ===============================");
         stackTraceMap.forEach((k, v) -> System.out.println(k + " : " + v));
     }
 }

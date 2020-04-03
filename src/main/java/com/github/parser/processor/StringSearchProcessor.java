@@ -7,7 +7,7 @@ import java.util.TreeMap;
 
 public class StringSearchProcessor {
 
-    private final Map<String, Integer> frequencyMap = new TreeMap<>();
+    private Map<String, Integer> frequencyMap = new TreeMap<>();
 
     public void processStringSearch(String currentLogMessage, String[] stringsToBeSearched) {
 
@@ -24,8 +24,8 @@ public class StringSearchProcessor {
         }
     }
 
-    public void getResults() {
-        System.out.println("StringSearchProcessor :");
+    public void processResults() {
+        System.out.println("=================================== StringSearchProcessor ===============================");
         frequencyMap.forEach((k,v) -> System.out.println(k + " :  " + v));
     }
 }
