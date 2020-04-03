@@ -1,6 +1,6 @@
-# LOG PARSER
+## LOG PARSER
 
-## Introduction
+### Introduction
 
 Sample repo for parsing logs and checking for exceptions and errors
 
