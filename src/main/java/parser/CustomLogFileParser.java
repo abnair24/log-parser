@@ -36,25 +36,11 @@ public class CustomLogFileParser {
             fileReader = new FileReader(file);
             bufferedReader = new BufferedReader(fileReader);
 
-            boolean status = false;
-            int counter = 0;
-            Map<String, Integer> exceptionMap = new TreeMap<>();
-            Map<String, List<String>> exceptionLinesMap = new TreeMap<>();
-            Map<String, List<String>> stackTraceMap = new TreeMap<>();
-            List<String> messageLines = new ArrayList<>();
-            List<String> stackTraceLines = new ArrayList<>();
-            String exceptionMessage = "";
+            String logMessage= "";
 
             while ((currentLine = bufferedReader.readLine()) != null) {
-                //contains fatal error ? flag=true
-                //if count of lines post fatal error <3 || has the strack trace pattern
-                //add to two freq maps 1) fatal error exception and count
-                //2) fatal error exception and list<string> which is a stack trace
-                //when it does not find the stack trace pattern flip the flag to false
-                //if you complete the above then move that to a class
 
-
-                String logMessage = regexHelper.extractLogMessage(processId, currentLine);
+                logMessage  = regexHelper.extractLogMessage(processId, currentLine);
 
                 errorProcesor.processForErrors(logMessage);
                 stringSearchProcessor.processStringSearch(logMessage, stringsToBeSearched);
